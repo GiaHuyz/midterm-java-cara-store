@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/cara_store
+    username: root
+    password: abc123
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
+jwt:
+  privateKey: STVgJV6vO3P7s4Efpj0VE6MNAK/JZqU1ZOL4YGBskug=
+
+fileUpload:
+  rootPath: ${user.dir}\src\main\resources\uploads

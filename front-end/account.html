@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech2etc Ecommerce Tutorial</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #cart-table {
+            border-collapse: collapse;
+            white-space: nowrap;
+        }
+
+        #cart-table img {
+            width: 70px;
+        }
+
+        #cart-table td:first-child {
+            width: 100px;
+            text-align: center;
+        }
+
+        #cart-table td:nth-child(2) {
+            width: 250px;
+            text-align: center;
+        }
+
+        #cart-table td:nth-child(3) {
+            width: 150px;
+            text-align: center;
+        }
+
+        #cart-table td:nth-child(4) span {
+            display: block;
+            width: 30px;
+            height: 30px;
+            margin: auto;
+        }
+
+        #cart-table td:nth-child(4),
+        #cart-table td:nth-child(5),
+        #cart-table td:nth-child(6),
+        #cart-table td:nth-child(7) {
+            width: 150px;
+            text-align: center;
+        }
+
+        #cart-table td:nth-child(3) input {
+            width: 70px;
+            padding: 10px 5px 10px 15px;
+        }
+
+        #cart-table thead {
+            border: 1px solid #e2e9e1;
+            border-left: none;
+            border-right: none;
+        }
+
+        #cart-table thead td {
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 13px;
+            padding: 18px 0;
+        }
+
+        #cart-table tbody tr td {
+            padding-top: 15px;
+        }
+
+        #cart-table tbody td {
+            font-size: 16px;
+        }
+    </style>
+    <script src="jquery/jquery.js"></script>
+    <script>
+        function parseJwt(token) {
+            var base64Url = token.split('.')[1];
+            var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+            var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function (c) {
+                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+            }).join(''));
+
+            return JSON.parse(jsonPayload);
+        }
+
+        var token = localStorage.getItem("token");
+
+        if (parseJwt(token).roles === "ROLE_ADMIN") {
+            window.location.replace('/admin.html');
+        }
+    </script>
+</head>
+
+<body>
+    <section id="header">
+        <a href="index.html"><img src="img/logo.png" class="logo" alt=""></a>
+        <div>
+            <ul id="navbar">
+                <li><a class="active" href="index.html">Home</a></li>
+                <li id="lg-bag"><a href="cart.html"><i class="fas fa-shopping-cart"></i></a></li>
+                <a href="#" id="close"><i class="far fa-times"></i></a>
+                
+            </ul>
+            <script src="js/navbar.js"></script>
+        </div>
+        <div id="mobile">
+            <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+            <i id="bar" class="fas fa-bars"></i>
+        </div>
+    </section>
+
+    <section id="accounts" class="section-p1 container">
+        <div class="row">
+            <div class="col-lg-3 mt-3" style="border-color: aqua;">
+                <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical"
+                    style="padding: 10px 20px; border-radius: 10px; border: 1px solid black;">
+                    <button class="nav-link active" id="v-pills-order-tab" data-bs-toggle="pill"
+                        data-bs-target="#v-pills-order" type="button" role="tab" aria-controls="v-pills-order"
+                        aria-selected="false">Order</button>
+                    <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill"
+                        data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile"
+                        aria-selected="true">Profile</button>
+                    <button class="nav-link" id="v-pills-cpassword-tab" data-bs-toggle="pill"
+                        data-bs-target="#v-pills-cpassword" type="button" role="tab" aria-controls="v-pills-cpassword"
+                        aria-selected="false">Change password</button>
+                </div>
+            </div>
+
+            <div class="col-lg-9 mt-3" style="border: 1px solid black; border-radius: 10px; padding: 20px;">
+                <div class="tab-content" id="v-pills-tabContent">
+                    <div class="tab-pane fade show active" id="v-pills-order" role="tabpanel" aria-labelledby="v-pills-order-tab">
+                        <h4 class="text-center">Order Details</h4>
+                        <div class="order-details">
+                            <table class="table table-striped text-center">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Order ID</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Total Price</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="order">
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="v-pills-profile" role="tabpanel"
+                        aria-labelledby="v-pills-profile-tab">
+                        <h4 class="text-center">Profile Information</h4>
+                        <div id="message" class="d-none alert alert-danger mt-3"></div>
+                        <form class="profile-form">
+                            <div class="form-group mt-3">
+                                <label for="full-name">Full Name</label>
+                                <input type="text" required id="full-name" name="full-name" class="form-control">
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="email">Email</label>
+                                <input type="email" readonly id="email" name="email" class="form-control">
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="address">Address</label>
+                                <input type="text" required id="address" name="address" class="form-control">
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="phone">Phone</label>
+                                <input type="text" required id="phone" name="phone" class="form-control">
+                            </div>
+
+                            <button id="edit-profile" class="btn btn-primary mt-3">Edit Profile</button>
+                        </form>
+                    </div>
+                    
+                    <div class="tab-pane fade" id="v-pills-cpassword" role="tabpanel"
+                        aria-labelledby="v-pills-cpassword-tab">
+                        <div class="change-password">
+                            <h4>Change Password</h4>
+                            <div id="message-pass" class="d-none alert alert-danger mt-3"></div>
+                            <form class="password-form">
+                                <div class="form-group mt-3">
+                                    <label for="current-password">Current Password:</label>
+                                    <input type="password" id="current-password" class="form-control">
+                                </div>
+                                <div class="form-group mt-3">
+                                    <label for="new-password">New Password:</label>
+                                    <input type="password" id="new-password" class="form-control">
+                                </div>
+                                <div class="form-group mt-3">
+                                    <label for="re-new-password">Re-enter New Password:</label>
+                                    <input type="password" id="re-new-password" class="form-control">
+                                </div>
+                                <button id="change-pass" class="btn btn-primary save-btn mt-3">Save</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </section>
+
+    <footer class="section-p1 container-fluid">
+        <div class="row">
+            <div class="col-sm-12 col-lg-3">
+                <img class="logo" src="img/logo.png" alt="">
+                <h4>Contact</h4>
+                <p><strong>Address: </strong>523 Road, Street 20, W.C</p>
+                <p><strong>Phone: </strong>+01 2456 456</p>
+                <p><strong>Hours: </strong>10:00 - 18:00, Mon-Sat</p>
+                <div class="follow">
+                    <h4>Follow us</h4>
+                    <div class="icon">
+                        <i class="fab fa-facbook-f"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-lg-3">
+                <h4>About</h4>
+                <a href="#">About us</a>
+                <a href="#">Delivery Information</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Contact us</a>
+            </div>
+
+            <div class="col-sm-12 col-lg-3">
+                <h4>My Account</h4>
+                <a href="#">Sign In</a>
+                <a href="#">Delivery Information</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Contact us</a>
+            </div>
+
+            <div class="col-sm-12 col-lg-3 install">
+                <h4>Install App</h4>
+                <p>From App Store or Google Play</p>
+                <div class="row-install d-flex">
+                    <img src="img/pay/app.jpg" alt="">
+                    <img src="img/pay/play.jpg" alt="">
+                </div>
+                <p>Secured Payment Gateways</p>
+                <img src="img/pay/pay.png" alt="">
+            </div>
+        </div>
+
+    </footer>
+
+    <script src="jquery/jquery.js"></script>
+    <script src="js/order.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+
+</html>
