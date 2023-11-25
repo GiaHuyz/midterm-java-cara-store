@@ -46,7 +46,7 @@ public class ProductController {
                                             @RequestParam(required = false) Double minPrice,
                                             @RequestParam(required = false) Double maxPrice,
                                             @RequestParam(required = false) String size,
-                                            @RequestParam int page,
+                                            @RequestParam(defaultValue = "1") int page,
                                             @RequestParam(required = false) String keyword) {
         ResponseData responseData = new ResponseData();
         Page<ProductDTO> data = productService.getAllProducts(brand, category, sort, minPrice, maxPrice, size, page, keyword);
