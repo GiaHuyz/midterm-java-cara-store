@@ -29,12 +29,12 @@ Cara Store là một web thương mại điện tử đơn giản được xây 
 
 **1. Thiết Lập Cơ Sở Dữ Liệu**
 - Sử dụng Docker hoặc XAMPP để tạo một MySQL server.
-- Tạo cơ sở dữ liệu cara_store bằng cách chạy script cara_store.sql.
-- **2. Chạy Backend**
+- Tạo cơ sở dữ liệu cara_store bằng cách chạy script cara_store.sql.  
+**2. Chạy Backend**
 - Clone dự án từ GitHub.
 - Cấu hình kết nối cơ sở dữ liệu trong file application.yml, mật khẩu để kết nối hiện tại là **"abc123"**.
-- Mở thư mục cara bằng IntelliJ IDEA và chạy file CaraApplication.java.
-- **3. Chạy Frontend**
+- Mở thư mục cara bằng IntelliJ IDEA và chạy file CaraApplication.java.  
+**3. Chạy Frontend**
 - Mở thư mục front-end bằng Visual Studio Code.
 - Sử dụng Live Server để chạy file index.html.
 
