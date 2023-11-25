@@ -27,7 +27,7 @@ $(document).ready(function () {
                             var detailHtml = ''
                             $.each(value.orderDetails, function (index, detail) {
                                 detailHtml += `<tr>
-                                                    <td><img src="/img/products/${detail.image}" alt=""></td>
+                                                    <td><img src="http://localhost:8080/api/products/file/${detail.image}" alt=""></td>
                                                     <td>${detail.productName}</td>
                                                     <td><input style="text-align: center;" type="number" readonly value="${detail.quantity}"></td>
                                                     <td><span class="rounded-circle" style="background-color: ${detail.color}"></span></td>

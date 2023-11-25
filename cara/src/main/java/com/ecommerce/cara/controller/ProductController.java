@@ -115,7 +115,7 @@ public class ProductController {
     @PostMapping()
     public ResponseEntity<?> saveProduct(@Valid @RequestBody ProductRequest productRequest) {
         try {
-            ProductDTO productDTO = productDetailService.saveProduct(productRequest);
+            ProductDTO productDTO = productService.saveProduct(productRequest);
             ResponseData responseData = new ResponseData();
             responseData.setData(productDTO);
             responseData.setDescription("successfully");

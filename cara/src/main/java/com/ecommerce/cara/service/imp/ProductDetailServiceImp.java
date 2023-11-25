@@ -54,39 +54,4 @@ public class ProductDetailServiceImp implements ProductDetailService {
 
         productDetailsRepository.delete(productDetails);
     }
-
-
-    @Override
-    public ProductDTO saveProduct(ProductRequest productRequest) {
-        Product product;
-        if (productRequest.getId() != null) {
-            product = productRepository.findById(productRequest.getId())
-                    .orElseThrow(() -> new EntityNotFoundException("Product not found"));
-        } else {
-            product = new Product();
-        }
-
-        Brands brands = new Brands();
-        brands.setBrandId(productRequest.getBrandId());
-
-        Category category = new Category();
-        category.setCategoryId(productRequest.getCategoryId());
-
-        product.setProductName(productRequest.getName());
-        product.setCategory(category);
-        product.setBrand(brands);
-        product.setPrice(productRequest.getPrice());
-        product.setDescription(productRequest.getDescription());
-
-        Product savedProduct = productRepository.save(product);
-
-        ProductDTO productDTO = new ProductDTO();
-        productDTO.setProductName(savedProduct.getProductName());
-        productDTO.setBrand(savedProduct.getBrand().getBrandName());
-        productDTO.setCategory(savedProduct.getCategory().getCategoryName());
-        productDTO.setPrice(savedProduct.getPrice());
-        productDTO.setDescription(savedProduct.getDescription());
-
-        return productDTO;
-    }
 }

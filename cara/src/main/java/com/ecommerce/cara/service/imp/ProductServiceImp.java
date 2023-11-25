@@ -4,9 +4,8 @@ import com.ecommerce.cara.dto.DetailDTO;
 import com.ecommerce.cara.dto.ProductAdminDTO;
 import com.ecommerce.cara.dto.ProductDTO;
 import com.ecommerce.cara.dto.ProductDetailsDTO;
-import com.ecommerce.cara.entity.Images;
-import com.ecommerce.cara.entity.Product;
-import com.ecommerce.cara.entity.ProductDetails;
+import com.ecommerce.cara.entity.*;
+import com.ecommerce.cara.payload.request.ProductRequest;
 import com.ecommerce.cara.repository.ProductDetailRepository;
 import com.ecommerce.cara.repository.ProductRepository;
 import com.ecommerce.cara.service.ProductService;
@@ -25,10 +24,6 @@ public class ProductServiceImp implements ProductService {
 
     @Autowired
     private ProductRepository productRepository;
-
-    @Autowired
-    private ProductDetailRepository productDetailRepository;
-
 
     @Override
     public Page<ProductDTO> getAllProducts(Integer brand, Integer category,
@@ -126,5 +121,39 @@ public class ProductServiceImp implements ProductService {
                 .orElseThrow(() -> new EntityNotFoundException("Product not found"));
 
         productRepository.delete(product);
+    }
+
+    @Override
+    public ProductDTO saveProduct(ProductRequest productRequest) {
+        Product product;
+        if (productRequest.getId() != null) {
+            product = productRepository.findById(productRequest.getId())
+                    .orElseThrow(() -> new EntityNotFoundException("Product not found"));
+        } else {
+            product = new Product();
+        }
+
+        Brands brands = new Brands();
+        brands.setBrandId(productRequest.getBrandId());
+
+        Category category = new Category();
+        category.setCategoryId(productRequest.getCategoryId());
+
+        product.setProductName(productRequest.getName());
+        product.setCategory(category);
+        product.setBrand(brands);
+        product.setPrice(productRequest.getPrice());
+        product.setDescription(productRequest.getDescription());
+
+        Product savedProduct = productRepository.save(product);
+
+        ProductDTO productDTO = new ProductDTO();
+        productDTO.setProductName(savedProduct.getProductName());
+        productDTO.setBrand(savedProduct.getBrand().getBrandName());
+        productDTO.setCategory(savedProduct.getCategory().getCategoryName());
+        productDTO.setPrice(savedProduct.getPrice());
+        productDTO.setDescription(savedProduct.getDescription());
+
+        return productDTO;
     }
 }

@@ -142,9 +142,10 @@ CREATE TABLE `order_details` (
   PRIMARY KEY (`order_detail_id`),
   KEY `order_id` (`order_id`),
   KEY `product_id` (`product_id`),
+  KEY `detail_id` (`detail_id`),
   CONSTRAINT `order_details_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`),
   CONSTRAINT `order_details_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`),
-  CONSTRAINT `order_details_ibfk_3` FOREIGN KEY (`product_id`) REFERENCES `product_details` (`detail_id`)
+  CONSTRAINT `order_details_ibfk_3` FOREIGN KEY (`detail_id`) REFERENCES `product_details` (`detail_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

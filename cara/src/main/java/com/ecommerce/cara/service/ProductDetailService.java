@@ -10,6 +10,4 @@ public interface ProductDetailService {
     DetailDTO save(DetailRequest detailRequest);
 
     void delete(Integer id);
-
-    ProductDTO saveProduct(ProductRequest productRequest);
 }
