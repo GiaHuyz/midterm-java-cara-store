@@ -13,10 +13,10 @@ Cara Store là một web thương mại điện tử đơn giản được xây 
 - Quản Lý Sản Phẩm (Admin): Người quản trị có thể thêm, xoá và chỉnh sửa thông tin liên quan đến sản phẩm.
 
 ## Cấu trúc source code
-
-![erd](https://github.com/GiaHuyz/midterm-java-cara-store/assets/123570938/b20fcad2-ceb0-4e30-bb07-5e7a91348556)
-
 ![code's structure](https://github.com/GiaHuyz/midterm-java-cara-store/assets/123570938/70ebccc5-be1a-41b0-90b3-1eaad3105d7e)
+
+## ERD
+![erd](https://github.com/GiaHuyz/midterm-java-cara-store/assets/123570938/b20fcad2-ceb0-4e30-bb07-5e7a91348556)
 
 ## Yêu cầu hệ thống
 
