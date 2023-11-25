@@ -14,9 +14,9 @@ Cara Store là một web thương mại điện tử đơn giản được xây 
 
 ## Cấu trúc source code
 
-![ERD](<../img giua ki/erd.png>)
+![erd](https://github.com/GiaHuyz/midterm-java-cara-store/assets/123570938/b20fcad2-ceb0-4e30-bb07-5e7a91348556)
 
-![Code Structure](<../img giua ki/code's structure.png>)
+![code's structure](https://github.com/GiaHuyz/midterm-java-cara-store/assets/123570938/70ebccc5-be1a-41b0-90b3-1eaad3105d7e)
 
 ## Yêu cầu hệ thống
 
@@ -65,7 +65,7 @@ Payload: **nếu có key "id" thì sẽ update**
 }
 ```
 
-![Alt text](<../img giua ki/add product.png>)
+![add product](https://github.com/GiaHuyz/midterm-java-cara-store/assets/123570938/19c356b6-ad6a-4926-b660-20cf4081c287)
 
 - get all product admin
 
@@ -84,7 +84,7 @@ Mỗi trang sẽ hiện bao nhiêu phần tử tuỳ vào start và length, mặ
 | :-------------- | :------------------------- |
 | `Authorization` | **Required**. Bearer token |
 
-![Alt text](<../img giua ki/get all product admin.png>)
+![get all product admin](https://github.com/GiaHuyz/midterm-java-cara-store/assets/123570938/4c502313-52c2-4e44-affd-8445a002fb7e)
 
 - delete product
 
@@ -100,7 +100,7 @@ DELETE /api/products/{id}
 | :-------------- | :------------------------- |
 | `Authorization` | **Required**. Bearer token |
 
-![Alt text](<../img giua ki/delete product.png>)
+![delete product](https://github.com/GiaHuyz/midterm-java-cara-store/assets/123570938/fccd6d46-5046-49cb-8916-99fb8736a3b3)
 
 - add or update product detail
 
@@ -122,7 +122,7 @@ Payload: **nếu có key "detailId" thì sẽ update**
 	"size": "M"
 }
 ```
-![Alt text](<../img giua ki/add or update product detail .png>)
+![add or update product detail ](https://github.com/GiaHuyz/midterm-java-cara-store/assets/123570938/2dfe6b6d-1d45-42f0-87eb-b2258d816969)
 
 - delete product detail
 
@@ -138,7 +138,7 @@ DELETE /api/products/details/{id}
 | :-------------- | :------------------------- |
 | `Authorization` | **Required**. Bearer token |
 
-![Alt text](<../img giua ki/delete product detail.png>)
+![delete product detail](https://github.com/GiaHuyz/midterm-java-cara-store/assets/123570938/196639fd-3a8f-444e-bb98-edeebdd79fc3)
 
 - add image
 
@@ -158,7 +158,7 @@ POST /api/products/images/:id
 | :-------------- | :------------------------- |
 | `Authorization` | **Required**. Bearer token |
 
-![Alt text](<../img giua ki/add image.png>)
+![add image](https://github.com/GiaHuyz/midterm-java-cara-store/assets/123570938/6fe3ebc5-0edd-4bfd-a3b4-82b1eeeb7933)
 
 - update image
 
@@ -179,7 +179,7 @@ POST /api/products/images/{id}/{oldfile}
 | :-------------- | :------------------------- |
 | `Authorization` | **Required**. Bearer token |
 
-![Alt text](<../img giua ki/update image.png>)
+![update image](https://github.com/GiaHuyz/midterm-java-cara-store/assets/123570938/8a786eac-7aa4-4abc-8ae2-1bb4cdd4d66e)
 
 - delete image
 
@@ -196,7 +196,7 @@ DELETE /api/products/{id}/images/{filename}
 | :-------------- | :------------------------- |
 | `Authorization` | **Required**. Bearer token |
 
-![Alt text](<../img giua ki/delete image.png>)
+![delete image](https://github.com/GiaHuyz/midterm-java-cara-store/assets/123570938/0f34090f-bfb1-489d-8e08-e52f96a90b67)
 
 #### signup
 
@@ -217,7 +217,8 @@ Payload:
 }
 ```
 
-![Alt text](<../img giua ki/signup.png>)
+![signup](https://github.com/GiaHuyz/midterm-java-cara-store/assets/123570938/39093202-d353-4b61-b5a9-b174f1bae178)
+
 
 #### login
 
@@ -234,9 +235,10 @@ Payload:
 }
 ```
 
-![Alt text](<../img giua ki/signin.png>)
+![signin](https://github.com/GiaHuyz/midterm-java-cara-store/assets/123570938/8a6a97e0-69f6-4aad-9d7a-c87a357b411f)
 
-#### product detail
+
+#### get product detail
 
 ```http
 GET /api/products/details/{id}
@@ -246,7 +248,7 @@ GET /api/products/details/{id}
 | :-------------- | :------- | :--------------------------- |
 | `id`         | `int` | **Required**. product id         |
 
-![Alt text](<../img giua ki/get product detail.png>)
+![get product detail](https://github.com/GiaHuyz/midterm-java-cara-store/assets/123570938/2061ff55-4fc2-4485-ad5c-9c6b536ad024)
 
 #### add cart
 
@@ -270,8 +272,8 @@ Payload:
 	}
 ]
 ```
+![add cart](https://github.com/GiaHuyz/midterm-java-cara-store/assets/123570938/2b652af4-8537-4d7b-a0db-73f1a347792f)
 
-![Alt text](<../img giua ki/add cart.png>)
 
 #### get user cart
 
@@ -283,7 +285,7 @@ GET /api/carts
 | :-------------- | :------------------------- |
 | `Authorization` | **Required**. Bearer token |
 
-![Alt text](<../img giua ki/get user cart.png>)
+![get user cart](https://github.com/GiaHuyz/midterm-java-cara-store/assets/123570938/df2a5470-788f-41b1-93b9-36111889b03a)
 
 #### add order
 
@@ -295,7 +297,7 @@ POST /api/orders
 | :-------------- | :------------------------- |
 | `Authorization` | **Required**. Bearer token |
 
-![Alt text](<../img giua ki/add order.png>)
+![add order](https://github.com/GiaHuyz/midterm-java-cara-store/assets/123570938/89806fec-755d-43de-b8f8-1afdce96e2d7)
 
 #### get user order
 
@@ -307,7 +309,7 @@ GET /api/orders
 | :-------------- | :------------------------- |
 | `Authorization` | **Required**. Bearer token |
 
-![Alt text](<../img giua ki/get user order.png>)
+![get user order](https://github.com/GiaHuyz/midterm-java-cara-store/assets/123570938/f0bce6e5-4155-4958-9160-ff91f90c571a)
 
 #### update user info
 
@@ -329,7 +331,7 @@ Payload:
 }
 ```
 
-![Alt text](<../img giua ki/update user info.png>)
+![update user info](https://github.com/GiaHuyz/midterm-java-cara-store/assets/123570938/744b9953-93aa-4c7a-b74d-c5219fd6b1e7)
 
 #### get user info
 
@@ -341,8 +343,7 @@ GET /api/users
 | :-------------- | :------------------------- |
 | `Authorization` | **Required**. Bearer token |
 
-
-![Alt text](<../img giua ki/get user info.png>)
+![get user info](https://github.com/GiaHuyz/midterm-java-cara-store/assets/123570938/aa723cf1-3043-4721-a6b4-02e6d1defef6)
 
 #### delete product in user cart
 
@@ -358,7 +359,7 @@ DELETE /api/carts/{id}
 | :-------------- | :------------------------- |
 | `Authorization` | **Required**. Bearer token |
 
-![Alt text](<../img giua ki/delete product in cart.png>)
+![delete product in cart](https://github.com/GiaHuyz/midterm-java-cara-store/assets/123570938/4b059c22-4a6e-4383-a4df-9723d99b4e1b)
 
 #### get all categories
 
@@ -366,14 +367,14 @@ DELETE /api/carts/{id}
 GET /api/categories
 ```
 
-![Alt text](<../img giua ki/get all categories.png>)
+![get all categories](https://github.com/GiaHuyz/midterm-java-cara-store/assets/123570938/b969bb36-925b-41af-b68d-157271cf44fe)
 
 #### get all brands
 
 ```http
 GET /api/brands
 ```
-![Alt text](<../img giua ki/get all brands.png>)
+![get all brands](https://github.com/GiaHuyz/midterm-java-cara-store/assets/123570938/c52c58a6-8df5-448e-996b-948b489a503c)
 
 #### get all product user
 
@@ -392,7 +393,7 @@ GET /api/products?category=2&page=1&keyword=nike
 | `page`     | `String` | **Required**. Số trang muốn xem, mặc định là 1     |
 | `keyword`  | `String` | Chuỗi tìm kiếm sản phẩm theo tên, miêu tả, brand, price, ...  |
 
-![Alt text](<../img giua ki/get all product user.png>)
+![get all product user](https://github.com/GiaHuyz/midterm-java-cara-store/assets/123570938/57c97835-dc84-4eb6-a31d-ce8fbcdd8ace)
 
 #### change pass
 
@@ -413,7 +414,7 @@ Payload:
 }
 ```
 
-![Alt text](<../img giua ki/change pass.png>)
+![change pass](https://github.com/GiaHuyz/midterm-java-cara-store/assets/123570938/2c1b6fda-894d-40aa-b6d9-0a784cbdb993)
 
 #### get image product
 
@@ -429,4 +430,4 @@ POST /api/products/file/{filename}
 | :-------------- | :------------------------- |
 | `Authorization` | **Required**. Bearer token |
 
-![Alt text](<../img giua ki/get image product.png>)
+![get image product](https://github.com/GiaHuyz/midterm-java-cara-store/assets/123570938/0e77d116-d84f-4970-81ff-f7b5db1e9959)
