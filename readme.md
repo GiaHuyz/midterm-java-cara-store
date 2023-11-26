@@ -5,7 +5,7 @@
 Cara Store là một web thương mại điện tử đơn giản được xây dựng với Java Spring Boot có tích hợp Spring Security. Dữ liệu được lưu trữ bằng MySQL. Dự án bao gồm các tính năng sau:
 
 - Hiển thị sản phẩm: Các sản phẩm được hiển thị với hỗ trợ phân trang.
-- Lọc pản phẩm: Người dùng có thể lọc sản phẩm theo nhiều tiêu chí như danh mục, giá cả, thương hiệu, size, sắp xếp theo giá tăng hoặc giảm dần.
+- Lọc sản phẩm: Người dùng có thể lọc sản phẩm theo nhiều tiêu chí như danh mục, giá cả, thương hiệu, size, sắp xếp theo giá tăng hoặc giảm dần.
 - Tìm kiếm sản phẩm: Tính năng tìm kiếm cho phép người dùng tìm sản phẩm theo từ khóa.
 - Quản Lý Giỏ Hàng: Người dùng có thể thêm và xoá sản phẩm trong giỏ hàng của họ.
 - Thanh Toán và Xem Hóa Đơn: Tính năng thanh toán cho phép người dùng hoàn tất mua hàng và xem hóa đơn của các đơn hàng đã thanh toán.
