@@ -39,6 +39,8 @@ Cara Store là một web thương mại điện tử đơn giản được xây 
 **3. Chạy Frontend**
 - Mở thư mục front-end bằng Visual Studio Code.
 - Sử dụng Live Server để chạy file index.html.
+- Tài khoản admin: admin@gmail.com / admin
+- Tài khoản user: pele@gmail.com / 123
 
 
 ## API Reference
